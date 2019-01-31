@@ -51,7 +51,11 @@ public class RedPacket {
             System.err.println("请调大最小红包金额 MAX_MONEY=[" + MAX_MONEY + "]");
             return moneys ;
         }
-
+        //最小检查,分的金额不足
+        if(MIN_MONEY * count > money){
+            System.err.println("请调大最小红包金额 MIN_MONEY=[" + MIN_MONEY * count + "]" + " 或调小最大红包个数 COUNT =[" + money / MIN_MONEY + "]");
+            return moneys ;
+        }
 
         //计算出最大红包
         int max = (int) ((money / count) * TIMES);
